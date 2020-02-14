@@ -1,0 +1,16 @@
+parameters:
+- name: var1
+  type: string
+  default: v1
+
+stages:
+- stage: jason
+  jobs:
+  - deployment: one
+    pool: 'default'
+    environment: 'env2'
+    strategy:
+      runOnce:
+       deploy:
+         steps:
+         - script: echo hi
